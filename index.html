@@ -208,48 +208,6 @@ cursor:pointer;
 }
 
 /* ACCOUNT DETAILS */
-.account-details{
-background:#f3f0f0;
-border-radius:10px;
-padding:12px;
-margin:12px 0 6px;
-width:100%;
-}
-
-.account-details .label{
-font-size:12px;
-color:#444;
-margin-bottom:6px;
-}
-
-.account-details .value{
-font-weight:bold;
-color:#6b1e2b; /* wine */
-display:block;
-margin:2px 0;
-}
-
-.copy-btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-width:22px;
-height:22px;
-margin-right:6px;
-border:1px solid #6b1e2b;
-background:#fff;
-color:#6b1e2b;
-border-radius:4px;
-cursor:pointer;
-vertical-align:middle;
-}
-
-.copy-btn svg{
-width:14px;
-height:14px;
-display:block;
-fill:#6b1e2b;
-}
 
 @media (max-width:480px){
 
@@ -326,20 +284,6 @@ font-size:22px;
 <button class="menu-btn" onclick="toggleSection('food')">Food Menu</button>
 
 <div class="section" id="food">
-
-<div class="account-details">
-<div class="label">Payment Account Details (Island Lounge)</div>
-<span class="value">Bank Name: Moniepoint Microfinance Bank</span>
-<span class="value">Account Name: Akure Buka Ventures</span>
-<span class="value">
-<button class="copy-btn" type="button" data-copy="5203978658" aria-label="Copy account number" title="Copy account number">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M16 1H6C4.9 1 4 1.9 4 3v12h2V3h10V1zm3 4H10c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h9c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H10V7h9v14z"/>
-</svg>
-</button>
-Account Number: 5203978658
-</span>
-</div>
 
 <div class="category" onclick="toggleCategory('swallow')">SWALLOW <span>+</span></div>
 <div class="items" id="swallow">
@@ -739,6 +683,24 @@ Account Number: 5203978658
 <button onclick="changeQty('Roasted yam with fish sauce',4500,-1)">-</button>
 <span id="qRoasted yam with fish sauce">0</span>
 <button onclick="changeQty('Roasted yam with fish sauce',4500,1)">+</button>
+</div>
+</div>
+
+<div class="item">
+<div>Peppered Turkey and Chips<br><span class="price">₦7500</span></div>
+<div class="qty">
+<button onclick="changeQty('Peppered Turkey and Chips',7500,-1)">-</button>
+<span id="qPeppered Turkey and Chips">0</span>
+<button onclick="changeQty('Peppered Turkey and Chips',7500,1)">+</button>
+</div>
+</div>
+
+<div class="item">
+<div>Chicken and Chips<br><span class="price">₦6500</span></div>
+<div class="qty">
+<button onclick="changeQty('Chicken and Chips',6500,-1)">-</button>
+<span id="qChicken and Chips">0</span>
+<button onclick="changeQty('Chicken and Chips',6500,1)">+</button>
 </div>
 </div>
 
@@ -1549,22 +1511,6 @@ alert("Proceed to payment of ₦"+total+" to the following account details:\nBan
 
 }
 
-document.addEventListener("click",function(e){
-let btn=e.target.closest(".copy-btn")
-if(!btn) return
-let text=btn.getAttribute("data-copy")||""
-if(!text) return
-if(navigator.clipboard && navigator.clipboard.writeText){
-navigator.clipboard.writeText(text).then(function(){
-btn.classList.add("copied")
-setTimeout(function(){btn.classList.remove("copied")},800)
-}).catch(function(){
-alert("Copy failed. Please copy manually: "+text)
-})
-}else{
-alert("Copy not supported. Please copy manually: "+text)
-}
-})
 
 </script>
 
